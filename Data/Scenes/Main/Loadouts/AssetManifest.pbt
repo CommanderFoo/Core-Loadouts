@@ -8,6 +8,15 @@ Assets {
   }
 }
 Assets {
+  Id: 16521111564870940696
+  Name: "UI Gradient Circular 001"
+  PlatformAssetType: 9
+  PrimaryAsset {
+    AssetType: "PlatformBrushAssetRef"
+    AssetId: "UI_Basic_Shape_001"
+  }
+}
+Assets {
   Id: 14315634840637379538
   Name: "Anton"
   PlatformAssetType: 28
@@ -32,5 +41,14 @@ Assets {
   PrimaryAsset {
     AssetType: "FontAssetRef"
     AssetId: "TekoRegular_ref"
+  }
+}
+Assets {
+  Id: 1177100205591754714
+  Name: "Frame Outline Thin 001"
+  PlatformAssetType: 9
+  PrimaryAsset {
+    AssetType: "PlatformBrushAssetRef"
+    AssetId: "FrameOutline_020"
   }
 }

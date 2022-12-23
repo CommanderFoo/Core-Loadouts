@@ -12,22 +12,29 @@ local offset_y = 4
 local is_open = false
 local total_height = 0
 local loadouts = {}
-local selected = 1
+local n = -1
+local selected = -1
 
-local function on_loadout_selected(button, index)
+local function on_loadout_selected(button, index, broadcast)
 	if(selected == index) then
 		return
 	end
 
-	loadouts[selected].item:SetButtonColor(NORMAL_COLOR)
-	loadouts[selected].star.visibility = Visibility.FORCE_OFF
+	if(loadouts[selected] ~= nil) then
+		loadouts[selected].item:SetButtonColor(NORMAL_COLOR)
+		loadouts[selected].star.visibility = Visibility.FORCE_OFF
+	end
 
 	selected = index
 	
 	loadouts[selected].item:SetButtonColor(SELECTED_COLOR)
 	loadouts[selected].star.visibility = Visibility.INHERIT
 
-	Events.BroadcastToServer("Loadout.Select", selected)
+	Events.Broadcast("Hotbar.Update", selected)
+
+	if(broadcast) then
+		Events.BroadcastToServer("Loadout.Select", selected)
+	end
 end
 
 local function on_action_pressed(player, action)
@@ -46,19 +53,17 @@ local function on_action_pressed(player, action)
 	end
 end
 
+local function update(index, broadcast)
+	on_loadout_selected(nil, index, broadcast)
+end
+
 for index, loadout in ipairs(LOADOUTS) do
 	local item = World.SpawnAsset(LOADOUT_ITEM, { parent = LOADOUTS_LIST })
 	local name = item:FindChildByName("Name")
 	local star = item:FindChildByName("Star")
 
-	item.pressedEvent:Connect(on_loadout_selected, index)
+	item.pressedEvent:Connect(on_loadout_selected, index, true)
 	name.text = loadout.Name
-
-	if(loadout.Default) then
-		star.visibility = Visibility.INHERIT
-		selected = index
-		item:SetButtonColor(SELECTED_COLOR)
-	end
 
 	loadouts[#loadouts + 1] = {
 
@@ -78,3 +83,4 @@ end
 WRAPPER.height = total_height + 56
 
 Input.actionPressedEvent:Connect(on_action_pressed)
+Events.Connect("Loadouts.Update", update)

@@ -63,6 +63,15 @@ Objects {
       }
     }
     Overrides {
+      Name: "cs:NormalColor"
+      Color {
+        R: 0.010329823
+        G: 0.0129830334
+        B: 0.0193823576
+        A: 1
+      }
+    }
+    Overrides {
       Name: "cs:SelectedColor"
       Color {
         R: 0.0183201656
@@ -72,11 +81,25 @@ Objects {
       }
     }
     Overrides {
-      Name: "cs:NormalColor"
+      Name: "cs:EnableHotbar"
+      Bool: false
+    }
+    Overrides {
+      Name: "cs:SaveLoadout"
+      Bool: false
+    }
+    Overrides {
+      Name: "cs:SlotActiveColor"
       Color {
-        R: 0.010329823
-        G: 0.0129830334
-        B: 0.0193823576
+        R: 0.121874966
+        G: 0.121874966
+        B: 0.121874966
+        A: 1
+      }
+    }
+    Overrides {
+      Name: "cs:SlotNormalColor"
+      Color {
         A: 1
       }
     }
@@ -95,6 +118,62 @@ Objects {
     Overrides {
       Name: "cs:Loadouts:ml"
       Bool: false
+    }
+    Overrides {
+      Name: "cs:SaveLoadout:tooltip"
+      String: "If enabled, when a player selects a loadout, it will be saved and loaded for their next session."
+    }
+    Overrides {
+      Name: "cs:SelectedColor:category"
+      String: "Custom"
+    }
+    Overrides {
+      Name: "cs:SelectedColor:subcategory"
+      String: "Loadout"
+    }
+    Overrides {
+      Name: "cs:NormalColor:category"
+      String: "Custom"
+    }
+    Overrides {
+      Name: "cs:NormalColor:subcategory"
+      String: "Loadout"
+    }
+    Overrides {
+      Name: "cs:SlotNormalColor:category"
+      String: "Custom"
+    }
+    Overrides {
+      Name: "cs:SlotNormalColor:subcategory"
+      String: "Hotbar"
+    }
+    Overrides {
+      Name: "cs:SlotActiveColor:category"
+      String: "Custom"
+    }
+    Overrides {
+      Name: "cs:SlotActiveColor:subcategory"
+      String: "Hotbar"
+    }
+    Overrides {
+      Name: "cs:SaveLoadout:category"
+      String: "Custom"
+    }
+    Overrides {
+      Name: "cs:SaveLoadout:subcategory"
+      String: "Hotbar"
+    }
+    Overrides {
+      Name: "cs:EnableHotbar:category"
+      String: "Custom"
+    }
+    Overrides {
+      Name: "cs:EnableHotbar:subcategory"
+      String: "Hotbar"
+    }
+    Overrides {
+      Name: "cs:EnableHotbar:tooltip"
+      String: "If enabled, the player can use the hotbar to switch between their equipment using the scroll wheel."
     }
   }
   Collidable_v2 {
