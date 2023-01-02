@@ -3,6 +3,7 @@ Assets {
   Name: "Loadouts"
   PlatformAssetType: 29
   SerializationVersion: 123
+  VirtualFolderPath: "Loadouts"
   BindingSetAsset {
     Bindings {
       BindingType {

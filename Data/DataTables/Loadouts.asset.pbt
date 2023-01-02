@@ -3,6 +3,7 @@ Assets {
   Name: "Loadouts"
   PlatformAssetType: 31
   SerializationVersion: 123
+  VirtualFolderPath: "Loadouts"
   DataTableAsset {
     Assets {
       Id: 17238908052599217490

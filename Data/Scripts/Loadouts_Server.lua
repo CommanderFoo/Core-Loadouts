@@ -1,11 +1,12 @@
 local ROOT = script:GetCustomProperty("Root"):WaitForObject()
 
 local LOADOUTS = require(ROOT:GetCustomProperty("Loadouts"))
+local SAVE_LOADOUT = ROOT:GetCustomProperty("SaveLoadout")
 
 local players = {}
 
 local function clean_up(player)
-	if(players[player].active ~= nil and Object.IsValid(players[player].active)) then
+	if(players[player] ~= nil and players[player].active ~= nil and Object.IsValid(players[player].active)) then
 		players[player].active:Unequip()
 
 		if(Object.IsValid(players[player].active)) then
@@ -33,19 +34,29 @@ local function equip_item(player, item_index)
 end
 
 local function save_data(player)
+	if(not SAVE_LOADOUT) then
+		return
+	end
+
 	if(players[player] ~= nil and players[player].loadout_index ~= nil) then
-		local data = Storage.GetPlayerData(player)
+		local data = {}
+		
+		pcall(function()
+			data = Storage.GetPlayerData(player)
+		end)
 
 		data.loadout = players[player].loadout_index
 
-		Storage.SetPlayerData(player, data)
+		pcall(function()
+			Storage.SetPlayerData(player, data)
+		end)
 	end
 end
 
 local function select_loadout(player, index)
 	clean_up(player)
 
-	if(LOADOUTS[index] ~= nil) then
+	if(LOADOUTS[index] ~= nil and players[player] ~= nil) then
 		players[player].loadout_index = index
 		players[player].loadout = LOADOUTS[index]
 		equip_item(player, 1)
@@ -65,14 +76,24 @@ local function equip_default(player)
 end
 
 local function on_player_joined(player)
-	local data = Storage.GetPlayerData(player)
-
+	local data = {}
+	
 	players[player] = {}
 
-	if(data.loadout) then
+	if(SAVE_LOADOUT) then
+		if(not pcall(function()
+			data = Storage.GetPlayerData(player)
+		end)) then
+			players[player].loadout_index = data.loadout or 1
+			players[player].loadout = LOADOUTS[players[player].loadout_index]
+
+			warn("Loadouts: Player Storage is disabled. Please use Game Settings object to enable this service.")
+		end
+	end
+
+	if(SAVE_LOADOUT and data.loadout) then
 		players[player].loadout_index = data.loadout or 1
 		players[player].loadout = LOADOUTS[players[player].loadout_index]
-
 	end
 end
 

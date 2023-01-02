@@ -7,5 +7,5 @@ Assets {
     }
   }
   SerializationVersion: 123
-  VirtualFolderPath: "Basic Shop"
+  VirtualFolderPath: "Loadouts"
 }

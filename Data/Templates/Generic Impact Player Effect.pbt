@@ -159,5 +159,7 @@ Assets {
     }
   }
   SerializationVersion: 123
+  VirtualFolderPath: "Loadouts"
+  VirtualFolderPath: "Core Content"
   VirtualFolderPath: "Weapons"
 }

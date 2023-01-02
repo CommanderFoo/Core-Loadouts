@@ -7,4 +7,5 @@ Assets {
     }
   }
   SerializationVersion: 123
+  VirtualFolderPath: "Loadouts"
 }

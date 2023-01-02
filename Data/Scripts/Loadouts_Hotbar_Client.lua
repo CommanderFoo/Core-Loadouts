@@ -3,6 +3,11 @@ local HOTBAR = script:GetCustomProperty("Hotbar"):WaitForObject()
 local SLOT_NORMAL_COLOR = ROOT:GetCustomProperty("SlotNormalColor")
 local SLOT_ACTIVE_COLOR = ROOT:GetCustomProperty("SlotActiveColor")
 local LOADOUTS = require(ROOT:GetCustomProperty("Loadouts"))
+local ENABLE_HOTBAR = ROOT:GetCustomProperty("EnableHotbar")
+
+if(ENABLE_HOTBAR) then
+	HOTBAR.visibility = Visibility.INHERIT
+end
 
 local slots = {
 
@@ -80,7 +85,7 @@ local function update(selected, item_index)
 end
 
 local function on_action_pressed(player, action, value)
-	if(action == "Hotbar Scroll") then
+	if(action == "Hotbar Scroll" and ENABLE_HOTBAR) then
 		local slot_index = active_slot_index
 
 		slot_index = slot_index + value
@@ -92,6 +97,12 @@ local function on_action_pressed(player, action, value)
 		end
 
 		select_slot(slot_index, true)
+	elseif(action == "Slot 1") then
+		select_slot(1, true)
+	elseif(action == "Slot 2") then
+		select_slot(2, true)
+	elseif(action == "Slot 3") then
+		select_slot(3, true)
 	end
 end
 

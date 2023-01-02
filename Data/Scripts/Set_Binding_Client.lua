@@ -1,1 +1,3 @@
-script.parent.text = "Press " .. Input.GetActionInputLabel("Open/Close Shop") .. " to Open Shop"
+local BINDING = script:GetCustomProperty("Binding")
+
+script.parent.text = Input.GetActionInputLabel(BINDING)

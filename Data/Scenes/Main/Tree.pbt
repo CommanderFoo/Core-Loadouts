@@ -15,7 +15,7 @@ Objects {
     }
   }
   ChildIds: 18042303868707812277
-  ChildIds: 11970749224872544955
+  ChildIds: 3909554581862099748
   UnregisteredParameters {
   }
   Collidable_v2 {
@@ -35,13 +35,9 @@ Objects {
   IsReplicationEnabledByDefault: true
 }
 Objects {
-  Id: 11970749224872544955
+  Id: 3909554581862099748
   Name: "Loadouts"
   Transform {
-    Location {
-    }
-    Rotation {
-    }
     Scale {
       X: 1
       Y: 1
@@ -49,153 +45,36 @@ Objects {
     }
   }
   ParentId: 4781671109827199097
-  UnregisteredParameters {
-    Overrides {
-      Name: "cs:LoadoutItem"
-      AssetReference {
-        Id: 3815879518088869049
-      }
-    }
-    Overrides {
-      Name: "cs:Loadouts"
-      AssetReference {
-        Id: 9152395585144405332
-      }
-    }
-    Overrides {
-      Name: "cs:NormalColor"
-      Color {
-        R: 0.010329823
-        G: 0.0129830334
-        B: 0.0193823576
-        A: 1
-      }
-    }
-    Overrides {
-      Name: "cs:SelectedColor"
-      Color {
-        R: 0.0183201656
-        G: 0.0230256878
-        B: 0.0343750305
-        A: 1
-      }
-    }
-    Overrides {
-      Name: "cs:EnableHotbar"
-      Bool: false
-    }
-    Overrides {
-      Name: "cs:SaveLoadout"
-      Bool: false
-    }
-    Overrides {
-      Name: "cs:SlotActiveColor"
-      Color {
-        R: 0.121874966
-        G: 0.121874966
-        B: 0.121874966
-        A: 1
-      }
-    }
-    Overrides {
-      Name: "cs:SlotNormalColor"
-      Color {
-        A: 1
-      }
-    }
-    Overrides {
-      Name: "cs:LoadoutItem:isrep"
-      Bool: false
-    }
-    Overrides {
-      Name: "cs:LoadoutItem:ml"
-      Bool: false
-    }
-    Overrides {
-      Name: "cs:Loadouts:isrep"
-      Bool: false
-    }
-    Overrides {
-      Name: "cs:Loadouts:ml"
-      Bool: false
-    }
-    Overrides {
-      Name: "cs:SaveLoadout:tooltip"
-      String: "If enabled, when a player selects a loadout, it will be saved and loaded for their next session."
-    }
-    Overrides {
-      Name: "cs:SelectedColor:category"
-      String: "Custom"
-    }
-    Overrides {
-      Name: "cs:SelectedColor:subcategory"
-      String: "Loadout"
-    }
-    Overrides {
-      Name: "cs:NormalColor:category"
-      String: "Custom"
-    }
-    Overrides {
-      Name: "cs:NormalColor:subcategory"
-      String: "Loadout"
-    }
-    Overrides {
-      Name: "cs:SlotNormalColor:category"
-      String: "Custom"
-    }
-    Overrides {
-      Name: "cs:SlotNormalColor:subcategory"
-      String: "Hotbar"
-    }
-    Overrides {
-      Name: "cs:SlotActiveColor:category"
-      String: "Custom"
-    }
-    Overrides {
-      Name: "cs:SlotActiveColor:subcategory"
-      String: "Hotbar"
-    }
-    Overrides {
-      Name: "cs:SaveLoadout:category"
-      String: "Custom"
-    }
-    Overrides {
-      Name: "cs:SaveLoadout:subcategory"
-      String: "Hotbar"
-    }
-    Overrides {
-      Name: "cs:EnableHotbar:category"
-      String: "Custom"
-    }
-    Overrides {
-      Name: "cs:EnableHotbar:subcategory"
-      String: "Hotbar"
-    }
-    Overrides {
-      Name: "cs:EnableHotbar:tooltip"
-      String: "If enabled, the player can use the hotbar to switch between their equipment using the scroll wheel."
-    }
-  }
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
   Visible_v2 {
     Value: "mc:evisibilitysetting:inheritfromparent"
   }
-  CameraCollidable {
-    Value: "mc:ecollisionsetting:inheritfromparent"
+  TemplateInstance {
+    ParameterOverrideMap {
+      key: 1712651930100960662
+      value {
+        Overrides {
+          Name: "Name"
+          String: "Loadouts"
+        }
+        Overrides {
+          Name: "Position"
+          Vector {
+          }
+        }
+        Overrides {
+          Name: "Rotation"
+          Rotator {
+          }
+        }
+      }
+    }
+    TemplateAsset {
+      Id: 7967915417835585167
+    }
   }
-  EditorIndicatorVisibility {
-    Value: "mc:eindicatorvisibility:visiblewhenselected"
-  }
-  Folder {
-    IsFilePartition: true
-    FilePartitionName: "Loadouts"
-  }
-  NetworkRelevanceDistance {
-    Value: "mc:eproxyrelevance:critical"
-  }
-  IsReplicationEnabledByDefault: true
 }
 Objects {
   Id: 18042303868707812277
